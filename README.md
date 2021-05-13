@@ -1,8 +1,15 @@
 # Testing our Datathlon workflow
 
-1. We are creating completely new data tables which go through peer-reviewed code, unit-tests, and a knowledgable curators reviews them from both methodological and documentation point of view. Each genuinely new dataset must receive a new DOI, the updated ones receive a DOI version for each table. This process needs to be calibrated with curators themselves. On **submission day**, i.e. 21 May, we do not want to automate the creation of new indicators and their depositions. Here is the [repo](https://github.com/dataobservatory-eu/observatory_data_curators) for the [Automated Observatory Data Curator's Handbook](http://curators.dataobservatory.eu/)
+## Not Fully Automated Worklow: Data Curation & Templates
+
+This part of the workflow counts on many different contributors who write code on different levels in R, Python, or do not write code at all. Automation will be supported with tutorials, potentially solutions, or even a Shiny app, but not **submission day**, i.e. 21 May.
+
+1. We are creating completely new data tables which go through peer-reviewed code, unit-tests, and a knowledgable curators reviews them from both methodological and documentation point of view. Each genuinely new dataset must receive a new DOI, the updated ones receive a DOI version for each table. This process needs to be calibrated with curators themselves. Here is the [repo](https://github.com/dataobservatory-eu/observatory_data_curators) for the [Automated Observatory Data Curator's Handbook](http://curators.dataobservatory.eu/)
 
 2. Automation for Zenodo uploads (updates) is encouraged, but not always necessary.  A Zenodo puts somebody responsible for each upload, so only genuinly new datasets that went through unit-tests, and their curator approved them, should get on Zenodo. The  `Working_on_Zenodo.Rmd`, see [here](https://rpubs.com/antaldaniel/zenodo-sandbox-setup) will be a tutorial for curators working in R. We should have a Python tutorial, too.
+
+
+## Fully Automated Workflow 
 
 3. In some cases, pre-defined and well-documented datatables can be updated programatically, using the ORCID ID and PAT of their creator.
 Every day an R instance runs a script.  
@@ -26,4 +33,11 @@ Every day an R instance runs a script.
 
 9. We can partially automate the front-end website, too.  Currently my netlify workflow actually uses Github Action, and  [netlify](https://www.netlify.com/) is razor fast, extremely cheap, and very well integrated with hugo, for example, which we use for the front-end webiste. We have two websites to maintain [Green Deal Data Observatory](http://greendeal.dataobservatory.eu/) and [Digital Music Observatory](https://greendeal.dataobservatory.eu/)  
 
+## Business Workflow 
+
+An important aspect of the Datathon is the creation of a for-profit business plan or social enterprise plan that makes the maintenance and growth of our observatories sustainable.
+
+a) Create the actual submissions (they will be place in this repo.)
+
+b) Maintain a handbook for partners and the website contents.
 
