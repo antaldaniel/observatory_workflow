@@ -43,4 +43,3 @@ Website of the Publications Office of the EU
 ## Age of team member(s)
 	
 We register as adults (every team member is 18 years old or older).
-
