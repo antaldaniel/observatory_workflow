@@ -22,7 +22,7 @@ Open source developers.
 
 ## Tagline of the app (140 characters), which could be published later
 
-The Digital Music Observatory is a fully automated, open source, open data observatory that creates public datasets to provide a comprehensive view of the European music industry.
+Our Future Economy Observatory is a fully automated, open source, open data observatory that produces new indicators from open data sources and experimental big data sources, with authoritative copies and a modern API.
 
 ## Description of the app (maximum 250 words)
 
