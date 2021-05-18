@@ -8,22 +8,21 @@ This part of the workflow counts on many different contributors who write code o
 
 2. Automation for Zenodo uploads (updates) is encouraged, but not always necessary.  A Zenodo puts somebody responsible for each upload, so only genuinly new datasets that went through unit-tests, and their curator approved them, should get on Zenodo. The  `Working_on_Zenodo.Rmd`, see [here](https://rpubs.com/antaldaniel/zenodo-sandbox-setup) will be a tutorial for curators working in R. We should have a Python tutorial, too.
 
-
 ## Fully Automated Workflow 
 
 3. In some cases, pre-defined and well-documented datatables can be updated programatically, using the ORCID ID and PAT of their creator.
-Every day an R instance runs a script.  
+Every day an R instance runs a script.  _In the first days, this should be done manually, but we have a template:_ [Curated Indicators](https://rpubs.com/antaldaniel/curated-database-demo).
 
-4. The initial observatory instances will be automatically updated with one script per observatory relying entirely on the  [indicator](https://github.com/dataobservatory-eu/indicator) package. 
-* Indicator should handle eventually all automated R tasks.
+4. The initial observatory instances will be automatically updated with one script per observatory relying entirely on the  [indicator](https://github.com/dataobservatory-eu/indicator) package. This is now public.
+* Indicator should handle eventually all automated R tasks, see [Curated Indicators](https://rpubs.com/antaldaniel/curated-database-demo).
 * If necessary, we should have a similar Python library. 
 * Indicator will harvest individual uploads from curators, too.
 
 5. Unit testing for the three initial packages, iotables, regions, retroharmonize has been moved to Github now. Feel welcome to raise issues or pick up them. 
 
-6 .The indicators prepared in 1-2 are uploaded in a Sqlite db file to a new_datafolder of this repo. 
+6 .The indicators prepared in 1-2 are uploaded in a Sqlite db file _temporarily_ to the _data-raw_ folder of  [indicator](https://github.com/dataobservatory-eu/indicator) the package. See _dmo.db_ for the [Digital Muisc Observatory](https://music.dataobservatory.eu/)
 
-7. The new_data / my_data.db goes to the serverthat runs our datasette instance (Boti). It is parameterized in a way that when a my_data.db arrives, it appends or updates the tables. Here is Boti's test version from today: [http://54.165.46.111:8000/](http://54.165.46.111:8000/)
+7. The new_data / my_data.db goes to the serverthat runs our datasette instance (Boti). It is parameterized in a way that when a my_data.db arrives, it appends or updates the tables. Here is Boti's test version from today: [http://54.165.46.111:8000/](http://54.165.46.111:8000/) Please describe this in far more detail so that other contributors can work on this.
 
 6. One the [Datasette](http://54.165.46.111:8000/) is updated, we should have second trigger. 
 
