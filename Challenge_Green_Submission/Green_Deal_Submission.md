@@ -33,3 +33,62 @@ Big data and automation create new inequalities and injustices and has a potenti
 Our observatory is monitoring the European economy to protect the consumers and the small companies from unfair competition both from data and knowledge monopolization and robotization. We take a critical SME-, intellectual property policy and competition policy point of view automation, robotization, and the AI revolution on the service-oriented European social market economy.
 
 We would like to create early-warning, risk, economic effect, and impact indicators that can be used in scientific, business and policy contexts for professionals who are working on re-setting the European economy after a devastating pandemic and in the age of AI. We are particularly interested in designing indicators that can be early warnings for killer acquisitions, algorithmic and offline discrimination against consumers based on nationality or place of residence, signs of undermining key economic and competition policy goals, and generally help small and medium-sized enterprises and start-ups to grow, and the financial sector to provide loanable and equity funds for their growth. 
+
+Team member 1
+
+* Team member 1 - Daniel Antal
+
+* Team member 1 - daniel.antal@reprex.nl
+
+* Team member 1 - NL (residence), HU (citizenship)
+
+* Team member 1 - the Hague
+
+* Team member 1 - Reprex, co-founder
+
+* Team member 1 - @dataandlyrics
+
+Team member 2
+
+Team member 2 - Kasia Kulma 
+
+Team member 2 - botond.vitos@dataobservatory.eu
+
+Team member 2 - UK
+
+
+Team member 2 - London
+
+Team member 2 - Organisation and job title
+
+Team member 2 - Twitter account
+
+Team member 3
+
+Team member 3 - First name and last name
+
+Team member 3 - Email
+
+Team member 3 - Country of origin
+
+
+Team member 3 - City
+
+Team member 3 - Organisation and job title
+
+Team member 3 - Twitter account
+
+Team member 4
+
+Team member 4 - First name and last name
+
+Team member 4 - Email
+
+Team member 4 - Country of origin
+
+
+Team member 4 - City
+
+Team member 4 - Organisation and job title
+
+Team member 4 - Twitter account
