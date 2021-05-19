@@ -13,7 +13,6 @@ Green Deal Observatory Team
 Prototype
 
 ## Target audience of app
-#TODO below description applies mainly to the Economy Observatory
 Business strategists and planners who work with various key business indicators;
 Public and non-governmental policy-makers who work with various impact and effect indicators;
 Academic researchers;
@@ -26,15 +25,13 @@ Our European Green Deal Observatory is a fully automated, open source, open data
 
 ## Description of the app (maximum 250 words)
 
-Big data and automation create new inequalities and injustices and has a potential to create a jobless growth economy. Our Green Deal Observatory is a fully automated, open source, open data observatory that produces new indicators from open data sources and experimental big data sources, with authoritative copies and a modern API.
+Climate change and environmental degradation are an existential threat to Europe and the world. To overcome these challenges, the European Union created the European Green Deal strategic plan. It aims to make the EU’s economy sustainable by turning climate and environmental challenges into opportunities and making the transition just and inclusive for all.
+Our Green Deal Data Observatory is a modern reimagination of ‘data observatories’, over 70 permanent international data collection and dissemination points.  We try to understand why dozens of the EU’s observatories do not use open data and reproducible research.  We want to show that open governmental data, open science, and reproducible research can lead to a higher quality and faster data ecosystem growth for policy, business, and academic data users.  
+We provide data through a modern API that is high quality, tidy, and easily imported to any proprietary database. Our data observatory is competing in the EU Datathon 2021. We believe that introducing Open Policy Analysis standards with open data, open-source software and research automation can help the Green Deal policymaking process. Our collaboration is open for individuals, citizens scientists, research institutes, NGOS, companies.
 
-#TODO below description applies to the Economy Observatory
+##Team 
 
-Our observatory is monitoring the European economy to protect the consumers and the small companies from unfair competition both from data and knowledge monopolization and robotization. We take a critical SME-, intellectual property policy and competition policy point of view automation, robotization, and the AI revolution on the service-oriented European social market economy.
-
-We would like to create early-warning, risk, economic effect, and impact indicators that can be used in scientific, business and policy contexts for professionals who are working on re-setting the European economy after a devastating pandemic and in the age of AI. We are particularly interested in designing indicators that can be early warnings for killer acquisitions, algorithmic and offline discrimination against consumers based on nationality or place of residence, signs of undermining key economic and competition policy goals, and generally help small and medium-sized enterprises and start-ups to grow, and the financial sector to provide loanable and equity funds for their growth. 
-
-Team member 1
+Tmember 1
 
 * Team member 1 - Daniel Antal
 
@@ -46,49 +43,46 @@ Team member 1
 
 * Team member 1 - Reprex, co-founder
 
-* Team member 1 - @dataandlyrics
+* Team member 1 - https://twitter.com/dataandlyrics
 
-Team member 2
+* Team member 2
 
-Team member 2 - Kasia Kulma 
+* Team member 2 - Kasia Kulma 
 
-Team member 2 - botond.vitos@dataobservatory.eu
+* Team member 2 - katarzyna.kulma@gmail.com
 
-Team member 2 - UK
+* Team member 2 - UK (residence), PL (citizenship)
 
+* Team member 2 - London
 
-Team member 2 - London
+* Team member 2 - Icebreaker One, software engineer and data scientist
 
-Team member 2 - Organisation and job title
+* Team member 2 - https://twitter.com/KKulma
 
-Team member 2 - Twitter account
+* Team member 3
 
-Team member 3
+* Team member 3 - Karel Volckaert
 
-Team member 3 - First name and last name
+* Team member 3 - karel.volckaert@gmail.com
 
-Team member 3 - Email
+* Team member 3 - Belgium
 
-Team member 3 - Country of origin
+* Team member 3 - Gent
 
+* Team member 3 - Riverrun, consultant
 
-Team member 3 - City
+* Team member 3 - 
 
-Team member 3 - Organisation and job title
+* Team member 4
 
-Team member 3 - Twitter account
+* Team member 4 - Leo Lahti
 
-Team member 4
+* Team member 4 - leo.lahti@iki.fi
 
-Team member 4 - First name and last name
+* Team member 4 - Finland
 
-Team member 4 - Email
+* Team member 4 - Turku
 
-Team member 4 - Country of origin
+* Team member 4 - University of Turku, Associate Professor of Data Science 
 
-
-Team member 4 - City
-
-Team member 4 - Organisation and job title
-
-Team member 4 - Twitter account
+* Team member 4 - Twitter account
