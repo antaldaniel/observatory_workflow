@@ -26,7 +26,9 @@ Our European Green Deal Observatory is a fully automated, open source, open data
 ## Description of the app (maximum 250 words)
 
 Climate change and environmental degradation are an existential threat to Europe and the world. To overcome these challenges, the European Union created the European Green Deal strategic plan. It aims to make the EU’s economy sustainable by turning climate and environmental challenges into opportunities and making the transition just and inclusive for all.
+
 Our Green Deal Data Observatory is a modern reimagination of ‘data observatories’, over 70 permanent international data collection and dissemination points.  We try to understand why dozens of the EU’s observatories do not use open data and reproducible research.  We want to show that open governmental data, open science, and reproducible research can lead to a higher quality and faster data ecosystem growth for policy, business, and academic data users.  
+
 We provide data through a modern API that is high quality, tidy, and easily imported to any proprietary database. Our data observatory is competing in the EU Datathon 2021. We believe that introducing Open Policy Analysis standards with open data, open-source software and research automation can help the Green Deal policymaking process. Our collaboration is open for individuals, citizens scientists, research institutes, NGOS, companies.
 
 ##Team 
