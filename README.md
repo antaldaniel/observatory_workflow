@@ -8,6 +8,8 @@ This part of the workflow counts on many different contributors who write code o
 
 2. Automation for Zenodo uploads (updates) is encouraged, but not always necessary.  A Zenodo puts somebody responsible for each upload, so only genuinly new datasets that went through unit-tests, and their curator approved them, should get on Zenodo. The  `Working_on_Zenodo.Rmd`, see [here](https://rpubs.com/antaldaniel/zenodo-sandbox-setup) will be a tutorial for curators working in R. We should have a Python tutorial, too.
 
+3. For individual curators who want to share with us data, we have three collection points on Zenodo that we will monitor. We will place our new, authoritative copies here, too: [greendeal](https://zenodo.org/communities/greendeal_observatory/), [music](https://zenodo.org/communities/music_observatory/), [economy](https://zenodo.org/communities/economy_observatory/). Please mobilize your friends to get shared, interesting, relevant datasets
+
 ## Fully Automated Workflow 
 
 3. In some cases, pre-defined and well-documented datatables can be updated programatically, using the ORCID ID and PAT of their creator.
