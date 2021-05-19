@@ -30,7 +30,7 @@ The Digital Music Observatory (DMO) is a fully automated, open source, open data
 
 Music is one of the most data-driven service industries where most sales are currently executed by AI-driven autonomous systems. We provide a template that enables making these AI-driven systems accountable and trustworthy, with the goal of re-balancing the legitimate interests of creators and consumers. Within Europe, this new balance will be an important use case of the European Data Strategy and the Digital Services Act. 
 
-The DMO is a fully functional service that can function as a testing ground of the European Data Strategy, showcasing the ways in which the music industry is affected by the problems that the Digital Services Act and European Trustworthy AI initiatives attempt to regulate. It is being built in an open collaboration with national music stakeholders, NGOs, academic institutions, and industry groups.
+The DMO is a fully functional service that can serve as a testing ground of the European Data Strategy. It can showcase the ways in which the music industry is affected by the problems that the Digital Services Act and European Trustworthy AI initiatives attempt to regulate. It is being built in an open collaboration with national music stakeholders, NGOs, academic institutions, and industry groups.
 
 ## EU datasets used (URLs)
 
