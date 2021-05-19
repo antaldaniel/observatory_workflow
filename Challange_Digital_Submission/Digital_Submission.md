@@ -41,9 +41,11 @@ The DMO is a fully functional service that can serve as a testing ground of the 
 
 Website of the Publications Office of the EU.
 
-## Age of team member(s)
+## Age of team member(s) 
+
+all adults over 18
 	
-Team member 1
+Tmember 1
 
 * Team member 1 - Daniel Antal
 
@@ -55,50 +57,46 @@ Team member 1
 
 * Team member 1 - Reprex, co-founder
 
-* Team member 1 - @dataandlyrics
+* Team member 1 - https://twitter.com/dataandlyrics
 
-Team member 2
+* Team member 2
 
-Team member 2 - Botond Vitos
+* Team member 2 - 
 
-Team member 2 - botond.vitos@dataobservatory.eu
+* Team member 2 - 
 
-Team member 2 - DE
+* Team member 2 - 
 
+* Team member 2 - 
 
-Team member 2 - Berlin
+* Team member 2 -
 
-Team member 2 - Organisation and job title
+* Team member 2 -
 
-Team member 2 - Twitter account
+* Team member 3
 
-Team member 3
+* Team member 3 - Dominika Semaňáková
 
-Team member 3 - First name and last name
+* Team member 3 - dominika.semanakova@soza.sk
 
-Team member 3 - Email
+* Team member 3 - Slovakia
 
-Team member 3 - Country of origin
+* Team member 3 - Bratislava
 
+* Team member 3 - SOZA, right management professional and musicologist
 
-Team member 3 - City
+* Team member 3 - 
 
-Team member 3 - Organisation and job title
+* Team member 4
 
-Team member 3 - Twitter account
+* Team member 4 - Botond Vitos
 
-Team member 4
+* Team member 4 - leo.lahti@iki.fi
 
-Team member 4 - First name and last name
+* Team member 4 - Germany (residence)
 
-Team member 4 - Email
+* Team member 4 - Berlin
 
-Team member 4 - Country of origin
+* Team member 4 - data engineer, Reprex
 
-
-Team member 4 - City
-
-Team member 4 - Organisation and job title
-
-Team member 4 - Twitter account
-
+* Team member 4 - Twitter account
