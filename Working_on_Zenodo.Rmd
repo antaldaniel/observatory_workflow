@@ -9,19 +9,19 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In our observatories, we store the authentic copies of new datasets on the European scientific data repository, [Zenodo](https://zenodo.org/). If you are new to Zenodo, you should upload at least one or two datasets manually, before trying to automate the process. And to avoid live-testing in Zenodo, where everythings is supposed to be permanent, set up a practice account on its practice clone,  [Sandbox Zenodo](https://sandbox.zenodo.org/) account.  
+In our observatories, we store the authentic copies of new datasets on the European scientific data repository, [Zenodo](https://zenodo.org/). If you are new to Zenodo, you should upload at least one or two datasets manually, before trying to automate the process. And to avoid live-testing in Zenodo, where everything is supposed to be permanent, set up a practice account on its practice clone,  [Sandbox Zenodo](https://sandbox.zenodo.org/) account.  
 
-In this example, you will authenticate yourself twice:  you will authenticate yourself as the creator (author) of a scientific object with [ORCID](https://orcid.org/). ORCID provides a persistent digital identifier (an ORCID iD) that you own and control, and that distinguishes you from every other researcher. And you will authenticate your session to [Zenodo](https://zenodo.org/) /  [Sandbox Zenodo](https://sandbox.zenodo.org/)  with a personal access token to one of these sites.  Beware, your Zenodo credentials do not work on Sandbox Zenodo, which ensures that you cannot accidentally upload practicing material to the real Zenodo, where there is no `undo` button.
+In this example, you will authenticate yourself twice:  you will authenticate yourself as the creator (author) of a scientific object with [ORCID](https://orcid.org/). ORCID provides a persistent digital identifier (an ORCID ID) that you own and control, and that distinguishes you from other researchers. And you will authenticate your session to [Zenodo](https://zenodo.org/) /  [Sandbox Zenodo](https://sandbox.zenodo.org/)  with a personal access token to one of these sites.  Note that your Zenodo credentials will not work on Sandbox Zenodo, which ensures that you cannot accidentally upload practicing material to the real Zenodo, where there is no `undo` button.
 
 ## Set Up Your Zenodo / Sandbox Account
 
-For practicing, please set up a [Zenodo Sandbox](https://sandbox.zenodo.org/) account. Zenodo Sandbox is a clone of Zenodo, created for testing applications. Do not practice on Zenodo itself, because whatever you publish on Zenodo is permanent. All examples below work exactly the same on Zenodo, without the `sandbox` subdomain in the calls.
+For practicing, please set up a [Zenodo Sandbox](https://sandbox.zenodo.org/) account. Zenodo Sandbox is a clone of Zenodo, created for testing applications. Do not practice on Zenodo itself, because whatever you publish on Zenodo is permanent. All examples below work exactly the same way on Zenodo, without the `sandbox` subdomain in the calls.
 
-Important: you will get a verification for both your account and your email address.  If you do not reply to the verification links (check Spam, Social, etc.) the API will seemingly work, but not record anything. That will lead to misleading error messages.
+Important: you will get a verification message on your account and your email address.  If you do not reply to the verification links (check Spam, Social, etc.) the API will seemingly work, but it will not record anything. That will lead to misleading error messages.
 
-Once you are sure that your Sandbox account is up an running and verified, you should create your Personal Access Token (PAT). In your user profile, Go to `Applications` and create a secret code with clicking deposit:actions, deposit:write.  
+Once you are sure that your Sandbox account is up and running (and verified), you should create your Personal Access Token (PAT). In your user profile, go to `Applications` and create a secret code by clicking deposit:actions, deposit:write.  
 
-In R, the best practice is to store this PAT in a keyring with the [keyring](https://r-lib.github.io/keyring/index.html) package. The following code will interactively set your PAT, i.e. if you run it in R, a pop-up window will ask you to copy the Zenodo Sandbox PAT from your browser to a textbox. Of course, you can use your favorite method [managing your secret variables](https://cran.r-project.org/web/packages/httr/vignettes/secrets.html), but do not expose it to the risk that you accidentally upload your PAT to github or send it to somebody in an email. If you store it in your repo, make sure that you exclude its synching in `.gitignore`, and in a package exclude it in  `.Rbuildignore`, too.
+In R, the best practice is to store this PAT in a keyring with the [keyring](https://r-lib.github.io/keyring/index.html) package. The following code will interactively set your PAT, i.e. if you run it in R, a pop-up window will ask you to copy the Zenodo Sandbox PAT from your browser to a textbox. Of course, you can use your favorite method [managing your secret variables](https://cran.r-project.org/web/packages/httr/vignettes/secrets.html), but do not accidentally upload your PAT to github or send it to somebody in an email. If you store it in your repo, make sure that you add it to `.gitignore` file, and in a package add it to `.Rbuildignore`, too.
 
 ```{r, eval=FALSE}
 require(keyring)
@@ -33,11 +33,11 @@ keyring::key_set (service =  "Zenodo", username = NULL)          # and the real 
 
 Your deposition has three important parts:
 
-* Metadata set for unique identification by Zenodo (Sandbox), such as a Zenodo id and a digital object identifier (DOI), or a version of a DOI.
-* Metadata set by the user, including the metadata of your authorship, the type of the document, keywords, etc.  Use ORCID to authenticate yourself. 
+* Metadata set for unique identification by Zenodo (Sandbox), such as a Zenodo ID and a digital object identifier (DOI), or a version of a DOI.
+* Metadata set by the user, including the metadata of your authorship, type of the document, keywords, etc.  Use ORCID to authenticate yourself. 
 * A copy of the data in a file. 
 
-In this tutorial we use [Zen4R](https://github.com/eblondel/zen4R/wiki), the R Interface to the Zenodo REST API. Zen4R uses R6 objects to prepare your deposition, which, unless you are familiar with truly object oriented languages, is a bit bizarre at first sight. R6 objects are not real R objects, but environments, so when you create a metadata record, they will not show in RStudios's Environment window as an object, but as a new environment. If all goes well, this should not bother use, but if you experience unexpected behavior, be mindful that you are not debugging a true R object in your global or function environment. 
+In this tutorial we use [Zen4R](https://github.com/eblondel/zen4R/wiki), the R Interface to the Zenodo REST API. Zen4R uses R6 objects to prepare your deposition, which, unless you are familiar with object-oriented languages, may seem a bit bizarre at first. R6 objects are not real R objects, but environments, so when you create a metadata record they will not show in RStudios's Environment window as an object, but as a new environment. This should not be a problem, but if you experience unexpected behavior, be mindful that you are not debugging a true R object in your global or function environment. 
 
 ### Start New Session 
 
@@ -59,7 +59,7 @@ If you did not store your PAT anywhere, you can also simply write `token = 'abc_
 
 ### Create a Record
 
-In this step we are creating an R6 object called `myrec`. If you run this code, in your RStudio, in the Environment window you will see myrec not as an object, but as an `Environment`.
+In this step we are creating an R6 object called `myrec`. If you run this code, in your RStudio, in the Environment window you will see `myrec` not as an object, but as an `Environment`.
 
 ```{r creat-fill-record, echo=FALSE}
 #create and fill a local (not yet deposited) record
@@ -77,31 +77,32 @@ myrec$setDOI("http://doi.org/00.0000/zenodo.00000") #use this method if your DOI
 
 ```
 
-If you run `myrec` in your console, you will be able to print out your record, but only if you replaced `Jane Doe` with your own name, and `orcid` with your true `ORCID ID`.  Also, if you specify a pre-set DOI (and don't expect to get a new DOI from Zenodo), you must beware that the API will check the validity of the `DOI` and the `ORID ID`, `firstname`, `lastname`. So you cannot test the following code with the dummy `http://doi.org/00.0000/zenodo.00000` and `Jane Doe`.  
+If you run `myrec` in your console, you will be able to print out your record, but only if you replaced `Jane Doe` with your own name, and `orcid` with your true `ORCID ID`.  Also, if you specify a pre-set DOI (and don't expect to get a new DOI from Zenodo), the API will check the validity of the `DOI` and the `ORID ID`, `firstname`, `lastname`. So you cannot test the following code with the dummy `http://doi.org/00.0000/zenodo.00000` and `Jane Doe`.  
 
-Because we work with `R6` objects, your session is called `ZENODO`, and you call the `depositRecord` method on session `ZENODO` to assign the `myrec` ZenodoRecord record object. With `Jane Doe`, you will get a validation error, but it should work fine, provided that you have spelled your name identically to your [ORCID](https://orcid.org/) ID records. 
+Because we work with `R6` objects, your session is called `ZENODO`, and you call the `depositRecord` method on session `ZENODO` to assign the `myrec` ZenodoRecord record object. With `Jane Doe`, you will get a validation error, but it should work fine, provided that you have spelled your name the way it stands in your [ORCID](https://orcid.org/) ID records. 
 
 ```{r get-error}
 myrec <- ZENODO$depositRecord(myrec)
 ```
-If you have provided some real information, you went throgh the verification, and take a look in your browser to your [Zenodo Sandbox](https://sandbox.zenodo.org/) account's `uploads`,  you must see a record, but not the data.
+If you have correctly provided real information, have gone through the verification process, take a look at your [Zenodo Sandbox](https://sandbox.zenodo.org/) account's `uploads`,  you should see a record, but not the data.
 
 ### Upload the Data
 
-Crucially, at this point your record should have a Zenodo ID, which connects you, as the author, your ORCID ID with the metadata record.  In this blogpost example, because we used `Jane Doe`, you get an NULL id back. 
+Crucially, at this point your record should have a Zenodo ID that connects your ORCID ID with the metadata record. In this example, because we used `Jane Doe`, you get an NULL id back. 
 
 ```{r recorid-d}
 myrec$id
 ```
 
-Should you work programmatically, your script can make check before upload if you have got here safely with:
+Should you work programmatically, your script can check for empty IDs before the upload:
 
 ```{r just-a-test}
 is.null(myrec$id)
 ```
-... which of course in a real-life example must return `FALSE`. The final step is to connect your `ZENODO` session (the `R6` object) to an R file that should be uploaded.  You can, if you want to, upload `rds` files to Zenodo, but I would suggest something more system- and language independent.  
 
-In this example, I create a temporary file in your R session, I write there the famous `iris` dataset in csv format, and try to upload it to the `ZENODO` session.  In this case, you get an error code because `Jane Doe` with her fictious ORCID ID and non-existing DOI was prevented to spam the server.
+A real-life example must return `FALSE`. The final step is to connect your `ZENODO` session (the `R6` object) to an R file that should be uploaded. You could upload `rds` files to Zenodo, but I would suggest something more system- and language independent, such as `csv` or `json`.  
+
+In this example, I create a temporary file in your R session, I write there the famous `iris` dataset in csv format, and try to upload it to the `ZENODO` session.  In this case, you get an error  because `Jane Doe` with her fictitious ORCID ID and non-existing DOI was prevented from spamming the server.
 
 ```{r upload-the-file}
 my_file_path <- tempfile()
@@ -111,6 +112,5 @@ ZENODO$uploadFile(my_file_path, myrec$id)
 
 
 ## Your Authoritative Copy
-
 
 You can check what I uploaded here on [sandbox.zenodo.org/deposit/818354](https://sandbox.zenodo.org/deposit/818354). This is a copy of one of my datasets that you can find with full description on Zenodo, under the same DOI.
