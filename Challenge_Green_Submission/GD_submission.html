@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EUSurvey - Survey</title>
+	<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<meta http-equiv="Pragma" content="no-cache, no-store"></meta>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"></meta>
+<meta http-equiv="Expires" content="-1"></meta>
+<meta name="_csrf" content="f1c54234-d66b-4640-9be1-d1ab5949b88e"/>
+<meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+<meta name="Description" content="EUSurvey is an online survey-management system built for the creation and publishing of globally accessible forms, such as user satisfaction surveys and public consultations." />
+
+<link href="/eusurvey/resources/css/jquery-ui.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+<link href="/eusurvey/resources/css/jquery-ui.structure.min.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+<link href="/eusurvey/resources/css/jquery-ui.theme.min.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+<link href="/eusurvey/resources/css/common.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+<link href="/eusurvey/resources/css/bootstrap-slider.min.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+
+<link href="/eusurvey/resources/css/bootstrap.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+	<link href="/eusurvey/resources/css/common-extension.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css"></link>
+
+<style type="text/css">
+/* 	html { overflow: hidden; } */
+	#participantsstatic thead { background-color: #fff; }
+	
+	@font-face {
+	    font-family: 'steinerregular';
+	    src: url('/eusurvey/resources/fonts/steinerlight-webfont.eot');
+	    src: url('/eusurvey/resources/fonts/steinerlight-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('/eusurvey/resources/fonts/steinerlight-webfont.woff') format('woff'),
+	         url('/eusurvey/resources/fonts/steinerlight-webfont.ttf') format('truetype'),
+	         url('/eusurvey/resources/fonts/steinerlight-webfont.svg#steinerregular') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	
+</style>
+
+<meta itemprop="image" content="/eusurvey/resources/images/favicon5.ico" />
+<link rel="shortcut icon" href="/eusurvey/resources/images/favicon5.ico" type="image/x-icon"></link>
+
+<script type='text/javascript' src='/eusurvey/resources/js/knockout-3.5.1.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e'></script>
+<script type="text/javascript" src="/eusurvey/resources/js/jquery-1.12.3.min.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/jquery-ui.min.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/spin.min.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/jquery.hotkeys.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/bootstrap.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/jquery.addplaceholder.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/jquery.validate.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/scroll-sneak.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/system.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script src="https://ec.europa.eu/wel/cookie-consent/consent.js" type="text/javascript"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/bootstrap-slider.min.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+ 
+<script type="text/javascript">
+	if (top != self) top.location=location;
+	
+	var contextpath = "/eusurvey";
+	var isresponsive = false;
+
+	
+			var unsavedChangesText = "You have made changes on this page that you have not yet confirmed. If you navigate away from this page you will lose your unsaved changes";	
+			var requiredText = "This field is required.";
+			var nomatchText =  "The two values do not match";
+			var shortnameText = "The name must only contain alphanumerical characters (characters of the alphabet (from a to Z), numbers (0 to 9)), hyphens and underscores.";
+			var shortnameText2 = "Please do not use more than one hyphen in a row";
+			var shortnameText3 = "Your survey alias may only contain alphanumeric characters (A-Z, a-z, 0-9), underscores and hyphens.";
+			var textnotlongenoughText = "This text is not long enough";
+			var texttoolongText = "This text is too long";
+			var texttoolong5000Text = "This question type does not allow more than 5000 characters";
+			var invalidnumberText = "This value is not a valid number";
+			var invalidCharacter = "Invalid (non UTF-8) characters detected. Please check your input.";
+			var valuetoosmall = "This value is too small";
+			var valuetoolarge = "This value is too large";
+			var timevaluetoosmall = "Entered time is smaller than the requested range.";
+			var timevaluetoolarge = "Entered time is greater than the requested range.";
+			var notenoughanswers = "Not enough answers selected";
+			var toomanyanswers = "Too many answers selected";
+			var noRegExmatchText = "The value does not match the defined pattern";
+			var invalidDate = "This value is not a valid date";
+			var invalidTime = "Invalid time format. Enter a time in the format 'HH:mm:ss'.";
+			var invalidEmail = "This is not a valid e-mail address";
+			var invalidCaseId = "This is not a valid contribution id";
+			var invalidStartEnd = "The end date must be later than the start date";
+			var invalidStartEndTime = "The end time must be later than the start time";
+			var interdependentText = "You can select each value only once";
+			var invalidURL = "This is not a valid URL";
+			var invalidPrecisionText = "decimal precision limited to {0}";
+			var invalidXHTML = "Your input cannot be processed (XHMTL invalid)";
+			var serverPrefix='https://ec.europa.eu/eusurvey/';//+'runner/';
+			var selectFileForUpload = "Select file to upload";
+			var selectFilesForUpload = "Select files to upload";
+			var uploadASkin = "Upload a skin";
+			var globalLanguage = 'en';
+			var questionTextLabel = "Question Text";
+			var typeLabel = "Type";
+			var ignoreLabel = "Ignore";
+			var sectionTitleLabel = "Section Title";
+			var descriptiveTextLabel = "Descriptive Text";
+			var modifyElementLabel = "Modify element";
+			var deleteElementLabel = "delete element";
+			var cutElementLabel = "cut element";
+			var copyElementLabel = "copy element";
+			var weakPasswordText = "Please choose a password between 8 and 16 characters with at least one digit and one non-alphanumeric character (e.g. !?$%...).";
+			var shortnameAlreadyExists = "A survey with this alias already exists.";
+			var endNotificationAutomatedPublishing = "Automatic Publishing must be activated to use the End Notification feature";
+			var allValues = "All Values";
+			var checkXHTMLValidityError = "It was not possible to access the server to validate the text.";
+			var mandatoryLabel = "Mandatory";
+			var optionalLabel = "Optional";
+			var invalidFileError = "The file is not valid.";
+			var IndentElementLabel = "Indent element";
+			var LabelExternalImage = "Warning: Using resources from another location represents a security and integrity risk for your survey.";
+			var UnindentElementLabel = "Unindent element";
+			var notenoughrowsanswerederror = "You did not answer enough rows.";
+			var toomanyrowsanswerederror = "You answered too many rows.";
+			var honeypotError = "If you are human please remove the text from this text box";
+			var clearLabel = "Clear Value";
+			var cancelLabel = "Cancel";
+			var showLabel = "Show";
+			var atLeast3Characters = "Search strings have to be at least 3 characters";
+			var loginExistsError = "This login already exists. Please choose a unique login.";
+			var message_Export1 = "Export started successfully. It can be accessed via the";
+			var label_ExportPage = "Export Page";
+			var message_PublicationExportSuccess = "You will receive a link to the file by mail as soon as it is available";
+			var message_PublicationExportSuccess2 = "You will receive the file by mail to {0} as soon as it is available";
+			var message_ExportFailed = "Export failed.";
+			var message_PublicationExportFailed = "It was not possible to create the file. Please contact the helpdesk.";
+			var atmost3Selections = "Please select at most 3 answers";
+			var varExceptionDuringSave = "There was an error during saving:";
+			var varwaitfordependencies = "Loading dependent questions...";
+			var varErrorCheckValidation = "Please check for validation errors";
+			var varErrorCheckValidation2 = "If this error message persists, please contact the support and send a screenshot of this page.";
+			var labelmore = "more...";
+			var labelless = "less";
+			var labelfrom = "From";
+			var labelto = "To";
+			var messageuploadnoconnection = "File-upload not possible. Please check your internet connection.";
+			var messageuploadwrongextension = "{0} does not match the allowed file types.";
+		
+	
+	var versionfootersource = "v1.5.2 fa33e7882e8ede850f59651eca48f25cae343e8e (05/05/2021 15:38)";
+	var version = versionfootersource.substring(versionfootersource.indexOf("(")+1);
+	version = version.substring(0, version.indexOf(" "));
+	
+	</script>
+<script type="text/javascript" src="/eusurvey/resources/js/utf8.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/includes.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+
+<script type="text/javascript">
+	
+	//<![CDATA[
+		
+	function getWrongExtensionMessage(filename)
+	{
+		var s;
+		
+		 
+				s = '[fn] does not match the allowed file types.';
+			
+		
+		return s.replace("[fn]", filename);
+	}
+	
+	function getExtensionsHelp(extensions)
+	{
+		var e = extensions.replace(new RegExp(';', 'g'), ',');
+		var s;
+		
+		 
+				s = 'Only files of the type [ex] are allowed';
+			
+		
+		return s.replace("[ex]", e);
+	}
+		
+	function countChar(input)
+	 {	
+		 var cs = getCharacterCount(input);
+		 
+		 var classes = $(input).attr('class').split(" ");
+		 var min = 0;
+		 var max = 0;
+			
+		 for ( var i = 0, l = classes.length; i<l; ++i ) {
+		 	if (strStartsWith(classes[i], 'min'))
+		 	{
+		 		min = parseInt(classes[i].substring(3));
+		 		
+		 	} else if (strStartsWith(classes[i], 'max'))
+		 	{
+		 		max = parseInt(classes[i].substring(3));
+		 	};	 	
+		 };
+		 
+		 $(input).closest(".survey-element").find(".charactercounter").text(cs);
+		 
+		 if (max > 0 && max - cs < 5)
+		 {
+			 $(input).closest(".survey-element").find(".glyphicon-alert").show();
+		 } else {
+			 $(input).closest(".survey-element").find(".glyphicon-alert").hide();
+		 }
+		 
+		 if (max > 0 && max - cs < 0)
+		 {
+			 $(input).closest(".survey-element").find(".charactercounterdiv").css("color", "#f00");
+		 } else {
+			 $(input).closest(".survey-element").find(".charactercounterdiv").css("color", "#777");
+		 }
+	 }
+	
+	//]]>
+	
+	var browser = '';
+	
+</script>
+
+<script defer="defer" src="//europa.eu/webtools/load.js" type="text/javascript"></script>
+		<script type="application/json">
+		{ "utility":"analytics", "siteID":"63", "sitePath":["ec.europa.eu/eusurvey"], "is404":false, "is403":false, "instance":"ec.europa.eu"} 
+		</script>
+	<script type="text/javascript" src="/eusurvey/resources/js/jqueryui/i18n/datepicker-en_UK.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>	
+		
+		<script type="text/javascript">
+			$(function() {
+				$( ".datepicker" ).datepicker( "option", $.datepicker.regional[ 'en_UK' ] );
+				$( ".datepicker" ).datepicker( "option", "dateFormat", "dd/mm/yy");
+			});
+		</script>	
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="/eusurvey/resources/css/bootstrap-ie7buttonfix.css">
+	<style type="text/css">	
+		.add-on {
+			height: 19px;
+			margin-top: 1px;
+		}	
+	</style>
+	<![endif]-->
+	
+	<!--[if IE 8]>
+		<link rel="stylesheet" href="/eusurvey/resources/css/bootstrap-ie8buttonfix.css">
+		<style>
+			.check {
+				margin-bottom: 3px !important;
+			}
+		</style>
+	<![endif]--> 
+	
+	<!--[if IE 9 ]>  
+		<script type="text/javascript">
+			browser = 'IE9';
+		</script>	
+	 <![endif]--><link href="/eusurvey/resources/css/fileuploader.css" rel="stylesheet" type="text/css" />
+	
+<script type="text/javascript" src="/eusurvey/resources/js/fileuploader.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/importsurvey.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/tinymce/jquery.tinymce.min.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+<script type="text/javascript" src="/eusurvey/resources/js/tinymce/tinymce.min.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+
+<script type="text/javascript">	
+
+	var myConfigSetting = {
+			
+			// Location of TinyMCE script
+			forced_root_block : '',
+			script_url : '/eusurvey/resources/js/tinymce/tinymce.min.js',
+			theme : "modern",
+			entity_encoding : "raw",
+			element_format : "xhtml",
+			menubar : false,
+			statusbar: true,
+			browser_spellcheck: true,
+		    
+			toolbar : ["bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | indent outdent | undo redo | bullist numlist | link code | fontsizeselect forecolor fontselect"],
+		    
+				formats: {
+			    	alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myleft', defaultBlock: 'div'},
+			    	aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'mycenter', defaultBlock: 'div'},
+			    	alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myright', defaultBlock: 'div'},
+			    	alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myfull', defaultBlock: 'div'}
+				},
+				content_style: '.myleft { text-align:left; } .mycenter { text-align:center; } .myright { text-align:right; } .myfull { text-align:justify; }',
+				
+				plugins : "paste link image code textcolor",
+			    
+			    font_formats: 
+	                "Sans Serif=FreeSans, Arial, Helvetica, Tahoma, Verdana, sans-serif;"+
+	                "Serif=FreeSerif,Times,serif;"+
+	                "Mono=FreeMono,Courier, mono;",
+			    
+			    image_advtab: true,
+			    language : globalLanguage,
+			    width: getWidthForTinyMCE(this),
+			    height: getHeightForTinyMCE(this),
+				entities: "",
+				object_resizing : false,
+				paste_auto_cleanup_on_paste : true,
+				paste_text_sticky: true,
+				paste_text_use_dialog: true,
+				content_css : "/eusurvey/resources/css/tinymce.css",
+				popup_css_add : "/eusurvey/resources/css/tinymcepopup.css",
+				forced_root_block : false,
+				
+				force_br_newlines : true,
+				force_p_newlines : false,
+				
+				resize: true,
+					
+				paste_postprocess : function(pl, o) {
+					  o.node.innerHTML = strip_tags( o.node.innerHTML,'<p><br>' );
+					},
+					
+				init_instance_callback: function (editor) {
+				    editor.on('Change', function (e) {
+				    	try {
+			        		  $('#savetextbutton').removeAttr('disabled');
+			        	  	unsavedChanges = true;
+			        	  } catch (e) {}
+				    });
+				},
+							
+				setup : function(ed) {		          
+			          ed.onresizestart=function(){
+			        	  return false;
+			          };			          
+			   },
+			   
+			   relative_urls : false,
+			   remove_script_host : false,
+			   document_base_url : serverPrefix,
+			   default_link_target: "_blank",
+			   anchor_top: false,
+			   anchor_bottom: false,
+			   branding: false,
+			   valid_classes: 'mycenter myleft myright myfull',
+			   invalid_elements : 'html,head,body'
+
+		};
+	
+	var myConfigSettingAlign = {
+			
+			// Location of TinyMCE script
+			forced_root_block : '',
+			script_url : '/eusurvey/resources/js/tinymce/tinymce.min.js',
+			theme : "modern",
+			entity_encoding : "raw",
+			element_format : "xhtml",
+			menubar : false,
+			statusbar: true,
+			browser_spellcheck: true,
+		    
+			toolbar : ["bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | indent outdent | undo redo | bullist numlist | link code | fontsizeselect forecolor fontselect"],
+		    
+// 				formats: {
+// 			    	alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myleft', defaultBlock: 'div'},
+// 			    	aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'mycenter', defaultBlock: 'div'},
+// 			    	alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myright', defaultBlock: 'div'},
+// 			    	alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myfull', defaultBlock: 'div'}
+// 				},
+// 				content_style: '.myleft { text-align:left; } .mycenter { text-align:center; } .myright { text-align:right; } .myfull { text-align:justify; }',
+				
+				plugins : "paste link image code textcolor",
+			    
+			    font_formats: 
+	                "Sans Serif=FreeSans, Arial, Helvetica, Tahoma, Verdana, sans-serif;"+
+	                "Serif=FreeSerif,Times,serif;"+
+	                "Mono=FreeMono,Courier, mono;",
+			    
+			    image_advtab: true,
+			    language : globalLanguage,
+			    width: getWidthForTinyMCE(this),
+			    height: getHeightForTinyMCE(this),
+				entities: "",
+				object_resizing : false,
+				paste_auto_cleanup_on_paste : true,
+				paste_text_sticky: true,
+				paste_text_use_dialog: true,
+				content_css : "/eusurvey/resources/css/tinymce.css",
+				popup_css_add : "/eusurvey/resources/css/tinymcepopup.css",
+				forced_root_block : false,
+				
+				force_br_newlines : true,
+				force_p_newlines : false,
+				
+				resize: true,
+					
+				paste_postprocess : function(pl, o) {
+					  o.node.innerHTML = strip_tags( o.node.innerHTML,'<p><br>' );
+					},
+					
+				init_instance_callback: function (editor) {
+				    editor.on('Change', function (e) {
+				    	try {
+			        		  $('#savetextbutton').removeAttr('disabled');
+			        	  	unsavedChanges = true;
+			        	  } catch (e) {}
+				    });
+				},
+							
+				setup : function(ed) {		          
+			          ed.onresizestart=function(){
+			        	  return false;
+			          };			          
+			   },
+			   
+			   relative_urls : false,
+			   remove_script_host : false,
+			   document_base_url : serverPrefix,
+			   default_link_target: "_blank",
+			   anchor_top: false,
+			   anchor_bottom: false,
+			   branding: false,
+			   valid_classes: 'y',
+			   invalid_elements : 'html,head,body'
+
+		};
+
+	var myConfigSettingEditor = {
+			
+			// Location of TinyMCE script
+			forced_root_block : '',
+			script_url : '/eusurvey/resources/js/tinymce/tinymce.min.js',
+			theme : "modern",
+			entity_encoding : "raw",
+			element_format : "xhtml",
+			menubar : false,
+			statusbar: true,
+			browser_spellcheck: true,
+					
+			toolbar : ["bold italic underline strikethrough alignleft aligncenter alignright alignjustify indent outdent | undo redo bullist numlist link code forecolor | fontsizeselect fontselect fullscreen"],
+		    
+			formats: {
+		    	alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myleft', defaultBlock: 'div'},
+		    	aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'mycenter', defaultBlock: 'div'},
+		    	alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myright', defaultBlock: 'div'},
+		    	alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'myfull', defaultBlock: 'div'}
+			},
+			content_style: '.myleft { text-align:left; } .mycenter { text-align:center; } .myright { text-align:right; } .myfull { text-align:justify; }',
+			
+		    plugins : "paste link image code textcolor fullscreen lists",
+		    
+		    font_formats: 
+                "Sans Serif=FreeSans, Arial, Helvetica, Tahoma, Verdana, sans-serif;"+
+                "Serif=FreeSerif,Times,serif;"+
+                "Mono=FreeMono,Courier, mono;",
+		    
+		    image_advtab: true,
+		    language : globalLanguage,
+		 
+			entities: "",
+			object_resizing : false,
+			paste_auto_cleanup_on_paste : true,
+			paste_text_sticky: true,
+			paste_text_use_dialog: true,
+			content_css : "/eusurvey/resources/css/tinymce.css",
+			popup_css_add : "/eusurvey/resources/css/tinymcepopup.css",
+			forced_root_block : false,
+			
+			force_br_newlines : true,
+			force_p_newlines : false,
+			
+			resize: true,
+				
+			paste_postprocess : function(pl, o) {
+				  o.node.innerHTML = strip_tags( o.node.innerHTML,'<p><br>' );
+				},
+				
+			init_instance_callback: function (editor) {
+			    editor.on('Change', function (e) {
+			    	try {
+		        		  $('#savetextbutton').removeAttr('disabled');
+		        	  	unsavedChanges = true;
+		        	  } catch (e) {}
+			    });
+			},
+						
+			setup : function(ed) {	          
+		          ed.onresizestart=function(){
+		        	  return false;
+		          };
+		          
+		          ed.on('FullscreenStateChanged', function(e) {
+		        	  if (e.state)
+		        	  {
+		        		  $("#editorheader").hide();
+		        		  if ($(".btn-primary1").length == 0)
+		        		  {
+		        		  	$(".mce-i-fullscreen").closest("div").after("<a class='btn btn-primary1' onclick='closeFullScreen(this, true);'>Apply</a><a class='btn btn-default1' onclick='closeFullScreen(this, false);'>Cancel</a>")
+		        		  };
+		        	  } else {
+		        		  $("#editorheader").show();
+		        		  $(".btn-primary1").remove();
+		        		  $(".btn-default1").remove();
+		        	  }
+		          });
+		          
+		          ed.on('keydown', function(e) {
+		              if (e.keyCode === 27) { // escape
+		            	if (ed.plugins.fullscreen.isFullscreen())
+		            	{
+		                	ed.execCommand('mceFullScreen');
+		            	}
+		              }
+		          });		         
+		   },
+		   
+		   relative_urls : false,
+		   remove_script_host : false,
+		   document_base_url : serverPrefix,
+		   default_link_target: "_blank",
+		   anchor_top: false,
+		   anchor_bottom: false,
+		   branding: false,
+		   valid_classes: 'mycenter myleft myright myfull',
+		   invalid_elements : 'html,head,body'
+		};
+	
+	var myConfigSetting2 = {
+			
+			// Location of TinyMCE script
+			script_url : '/eusurvey/resources/js/tinymce/tinymce.min.js',
+			theme : "modern",
+			entity_encoding : "raw",
+			element_format : "xhtml",
+			menubar : false,
+			statusbar: true,
+			toolbar : ["bold italic underline strikethrough | undo redo | bullist numlist | link code | fontsizeselect forecolor fontselect"],
+		    plugins : "paste link image code textcolor",
+		    font_formats: 
+                "Sans Serif=FreeSans, Arial, Helvetica, Tahoma, Verdana, sans-serif;"+
+                "Serif=FreeSerif,Times,serif;"+
+                "Mono=FreeMono,Courier, mono;",
+			language : globalLanguage,
+		    image_advtab: true,
+			width: "510",
+			entities: "",
+			content_css : "/eusurvey/resources/css/tinymce.css",
+			popup_css_add : "/eusurvey/resources/css/tinymcepopup.css",
+			forced_root_block : '',
+			resize: true,
+			browser_spellcheck: true,
+			
+			paste_postprocess : function(pl, o) {
+				  o.node.innerHTML = replaceBRs(strip_tags( o.node.innerHTML,'<p><br>' ));
+				},
+				
+			init_instance_callback: function (editor) {
+			    editor.on('Change', function (e) {
+			    	try {
+		        		  $('#savetextbutton').removeAttr('disabled');
+		        	  	unsavedChanges = true;
+		        	  } catch (e) {}
+			    });
+			},
+			
+		   relative_urls : false,
+		   remove_script_host : false,
+		   document_base_url : serverPrefix,
+		   default_link_target: "_blank",
+		   anchor_top: false,
+		   anchor_bottom: false,
+		   branding: false,
+		   valid_classes: 'y',
+		   invalid_elements : 'html,head,body'
+
+		};
+
+	var myConfigSetting2Editor = {
+			
+			// Location of TinyMCE script
+			script_url : '/eusurvey/resources/js/tinymce/tinymce.min.js',
+			theme : "modern",
+			entity_encoding : "raw",
+			element_format : "xhtml",
+			menubar : false,
+			statusbar: true,
+			toolbar : ["bold italic underline strikethrough undo redo link code fullscreen | fontsizeselect forecolor fontselect"],
+		    plugins : "paste link image code textcolor fullscreen",
+		    font_formats: 
+                "Sans Serif=FreeSans, Arial, Helvetica, Tahoma, Verdana, sans-serif;"+
+                "Serif=FreeSerif,Times,serif;"+
+                "Mono=FreeMono,Courier, mono;",
+			language : globalLanguage,
+		    image_advtab: true,
+			entities: "",
+			content_css : "/eusurvey/resources/css/tinymce2.css",
+			popup_css_add : "/eusurvey/resources/css/tinymcepopup.css",
+			forced_root_block : 'p',
+			resize: true,
+			browser_spellcheck: true,
+			
+			paste_postprocess : function(pl, o) {
+				  o.node.innerHTML = replaceBRs(strip_tags( o.node.innerHTML,'<p><br>' ));
+				},
+				
+			init_instance_callback: function (editor) {
+			    editor.on('Change', function (e) {
+			    	try {
+		        		  $('#savetextbutton').removeAttr('disabled');
+		        	  	unsavedChanges = true;
+		        	  } catch (e) {}
+			    });
+			},
+			
+			setup : function(ed) {	          
+		          ed.on('FullscreenStateChanged', function(e) {
+		        	  if (e.state)
+		        	  {
+		        		  $("#editorheader").hide();
+		        		  if ($(".btn-primary1").length == 0)
+		        		  {
+		        		  	$(".mce-i-fullscreen").closest("div").after("<a class='btn btn-primary1' onclick='closeFullScreen(this, true);'>Apply</a><a class='btn btn-default1' onclick='closeFullScreen(this, false);'>Cancel</a>")
+		        		  };
+		        	  } else {
+		        		  $("#editorheader").show();
+		        		  $(".btn-primary1").remove();
+		        		  $(".btn-default1").remove();
+		        	  }
+		          });
+		   },
+
+		   relative_urls : false,
+		   remove_script_host : false,
+		   document_base_url : serverPrefix,
+		   default_link_target: "_blank",
+		   anchor_top: false,
+		   anchor_bottom: false,
+		   branding: false,
+		   valid_classes: 'y',
+		   invalid_elements : 'html,head,body'
+
+		};
+	
+	$(document).ready(function(){
+		
+		$(".filtercell").find("input[type=text]").each(function(){
+			if ($(this).hasClass("limitedfilter")) {
+				$(this).attr("placeholder", "Filter (3 chars minimum)")
+			} else {
+				$(this).attr("placeholder", "Filter")
+			}
+		});
+		
+		$('textarea.tinymce').each(function(){
+			$(this).tinymce(myConfigSetting2);
+		          });
+
+		$('textarea.tinymcealign').each(function(){
+			$(this).tinymce(myConfigSetting);
+		});
+		
+		$('textarea.tinymcealign2').each(function(){
+			$(this).tinymce(myConfigSettingAlign);
+		});
+	
+		$('textarea.tinymcemessage').tinymce({
+			
+			// Location of TinyMCE script
+			forced_root_block : '',
+			script_url : '/eusurvey/resources/js/tinymce/tinymce.min.js',
+			theme : "modern",
+			entity_encoding : "raw",
+			menubar : false,
+			statusbar: true,
+			toolbar : ["bold italic underline strikethrough forecolor| undo redo | link"],
+		    plugins : "paste  link fullscreen",
+		    language : globalLanguage,
+		    width: "510",
+			entities: "",
+			object_resizing : false,
+			paste_auto_cleanup_on_paste : true,
+			paste_text_sticky: true,
+			paste_text_use_dialog: true,
+			content_css : "/eusurvey/resources/css/tinymce.css",
+			popup_css_add : "/eusurvey/resources/css/tinymcepopup.css",
+			forced_root_block : false,
+			resize: true,
+			browser_spellcheck: true,
+				
+			paste_postprocess : function(pl, o) {
+				  o.node.innerHTML = strip_tags( o.node.innerHTML,'<p><br>' );
+				},
+						
+			setup : function(ed) {
+		          ed.on("change",function(ed, l) {
+		        	  try {
+		        	  	unsavedChanges = true;
+		        	  } catch (e) {}
+		          });
+		          
+		          ed.onresizestart=function(){
+		        	  return false;
+		          };
+		          
+		   },
+		   
+		   relative_urls : false,
+		   remove_script_host : false,
+		   document_base_url : serverPrefix,
+		   default_link_target: "_blank",
+		   anchor_top: false,
+		   anchor_bottom: false,
+		   branding: false,
+		   valid_classes: 'y',
+		   invalid_elements : 'html,head,body'
+
+		});
+	});
+</script><link href="/eusurvey/resources/css/fileuploader.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css" />
+	<link href="/eusurvey/resources/css/runner.css?version=fa33e7882e8ede850f59651eca48f25cae343e8e" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" src="/eusurvey/resources/js/runner.js?version=fa33e7882e8ede850f59651eca48f25cae343e8e"></script>
+	
+	<style type="text/css">
+	
+		body {
+			-webkit-print-color-adjust:exact;
+		}
+	
+		.sectiontitle {
+			border-color: #777;
+		}
+	
+		.dataTable table {
+			border-top: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+		}
+				
+		.dataTable td {
+			border-bottom: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			padding: 5px;
+		}
+		
+		.limits {
+			color: #333;
+		}
+		
+		pre {
+			margin-left: 20px;
+		}
+		
+		.survey-element {
+			max-width: none;
+			overflow-x: visible;
+		}
+		
+		div {
+			word-break: break-word;
+		}
+	
+	</style>
+	
+	<script type="text/javascript"> 
+		$(function() {	
+			$(".handsontableInput").hide();
+			setTimeout(function(){ window.print(); }, 3000);
+			$("input[type=checkbox]").attr("disabled","disabled");
+		});			
+	</script>
+</head>
+<body id="printFromContribution">
+
+	<div style="margin: 20px;">
+		Contribution ID: 0c1ce217-82a4-4a52-871a-c4c8cfff40a5<br/>
+		Date: 20&#x2f;05&#x2f;2021 22&#x3a;47&#x3a;29<br/><br />
+		
+		<div class="surveytitle" style="color: #000;">EU Datathon 2021 - Project description</div>
+		
+		<div style="margin-top: 10px;">
+				Fields marked with * are mandatory.</div>
+		<span class="introduction"></span>
+		
+		<div class="survey-element" id="59449191" style="margin: 5px; margin-top: 25px;">
+					<div class="alignment-div" style="width: 100%; text-align:left;">																			
+						<img src="/eusurvey/files/084aa855-0258-4fea-bc6d-b9506983e7e0/d0f32975-cfb6-4f7d-b515-f2f76e7f628d" alt="Image" style="width: 975.0px; max-width: 975.0px" />
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449192" style="margin: 5px; margin-top: 25px;">
+					<hr class="hr2" />									
+					<div class="sectiontitle section1" style="color: #000;">Challenge</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449193" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Challenge</div>
+					<div class="answer-columns">
+						<table class="answers-table">
+									<tr>
+										<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" checked="checked" id="59449194" class="requiredcheck " type="radio" name="answer59449193" value="59449194" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Challenge 1 - A European Green Deal</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59449195" class="required check" type="radio" name="answer59449193" value="59449195" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Challenge 2 - An economy that works for people</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59449196" class="required check" type="radio" name="answer59449193" value="59449196" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Challenge 3 - A Europe fit for the digital age</div>
+											</td>						
+											</tr>
+												<tr>
+											</tr>			
+								</table>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449197" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Team name</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Green Deal Observatory Team</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449198" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">Twitter account of the team if available </div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;"></div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449199" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">Other social media channels of the team if available</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">https&#x3a;&#x2f;&#x2f;www.linkedin.com&#x2f;company&#x2f;68855596&#x2f;</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449200" style="margin: 5px; margin-top: 25px;">
+					<hr class="hr2" />									
+					<div class="sectiontitle section1" style="color: #000;">Team member 1</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449201" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Team member 1 - First name and last name</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Daniel Antal</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449202" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Team member 1 - Email</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">daniel.antal&#x40;dataobservatory.eu</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449203" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Team member 1 - Country of origin</div>
+					<div class="answer-columns">
+						<div class="answer-column" style="word-wrap: break-word; border: 1px solid #bbb; padding: 5px; min-height: 20px;">
+									<div style="float: right"><i class="icon icon-chevron-down"></i></div>
+									Hungary</div>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449397" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">Team member 1 - City</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">the Hague</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449398" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Team member 1 - Organisation and job title</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Reprex BV, co-founder</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449399" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Team member 1 - Twitter account</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;antaldaniel</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449400" style="margin: 5px; margin-top: 25px;">
+					<hr class="hr2" />									
+					<div class="sectiontitle section1" style="color: #000;">Team member 2</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449401" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 2 - First name and last name</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Kasia Kulma</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449402" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 2 - Email</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">katarzyna.kulma&#x40;gmail.com</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449403" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 2 - Country of origin</div>
+					<div class="answer-columns">
+						<div class="answer-column" style="word-wrap: break-word; border: 1px solid #bbb; padding: 5px; min-height: 20px;">
+									<div style="float: right"><i class="icon icon-chevron-down"></i></div>
+									Poland</div>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449597" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 2 - City</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">London</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449598" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 2 - Organisation and job title</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Icebreaker One, software developer engineer</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449599" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 2 - Twitter account</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">https&#x3a;&#x2f;&#x2f;twitter.com&#x2f;KKulma</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449600" style="margin: 5px; margin-top: 25px;">
+					<hr class="hr2" />									
+					<div class="sectiontitle section1" style="color: #000;">Team member 3</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449601" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 3 - First name and last name</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Pyry Kantanen</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449602" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 3 - Email</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">pyry.kantanen&#x40;utu.fi </div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449603" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 3 - Country of origin</div>
+					<div class="answer-columns">
+						<div class="answer-column" style="word-wrap: break-word; border: 1px solid #bbb; padding: 5px; min-height: 20px;">
+									<div style="float: right"><i class="icon icon-chevron-down"></i></div>
+									Finland</div>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449797" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 3 - City</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Turku</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449798" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 3 - Organisation and job title</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Graduate Student in Economic Sociology at Turun yliopisto - University of Turku</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449799" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 3 - Twitter account</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;"></div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449800" style="margin: 5px; margin-top: 25px;">
+					<hr class="hr2" />									
+					<div class="sectiontitle section1" style="color: #000;">Team member 4</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449801" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 4 - First name and last name</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Karel Volckaert</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449802" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 4 - Email</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">karel.volckaert&#x40;gmail.com</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449803" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 4 - Country of origin</div>
+					<div class="answer-columns">
+						<div class="answer-column" style="word-wrap: break-word; border: 1px solid #bbb; padding: 5px; min-height: 20px;">
+									<div style="float: right"><i class="icon icon-chevron-down"></i></div>
+									Belgium</div>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59449997" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 4 - City</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Gent</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449998" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 4 - Organisation and job title</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Riverrun, consultant</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59449999" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">(Optional) Team member 4 - Twitter account</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;"></div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450000" style="margin: 5px; margin-top: 25px;">
+					<hr class="hr2" />									
+					<div class="sectiontitle section1" style="color: #000;">Project description</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59450001" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Maturity of app</div>
+					<div class="answer-columns">
+						<table class="answers-table">
+									<tr>
+										<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450002" class="required check" type="radio" name="answer59450001" value="59450002" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Not yet developed</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" checked="checked" id="59450003" class="requiredcheck " type="radio" name="answer59450001" value="59450003" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Prototype ready</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450004" class="required check" type="radio" name="answer59450001" value="59450004" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Very advanced</div>
+											</td>						
+											</tr>
+												<tr>
+											</tr>			
+								</table>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59450005" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">URL to solution</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">https&#x3a;&#x2f;&#x2f;greendeal.dataobservatory.eu&#x2f;</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450006" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">Mockups of the app (These mockups can be sketches or screenshots of what is planned to be developed. It should only give an idea to the jury what is planned to be developed.)</div>
+					<div class="uploaded-files">
+						GDO_Datahton_submission-compressed.pdf<br /><br />
+									</div>												
+				</div>
+								
+								
+			<div class="survey-element" id="59450007" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Target audience of app</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Business strategists and planners who work with various key business indicators&#x3b; Public and non-governmental policy-makers who work with various impact and effect indicators&#x3b; Academic researchers&#x3b; Data journalists&#x3b; Open source developers.</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450008" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Tagline of the app (140 characters), which could be published later</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Our European Green Deal Observatory is a fully automated, open source, open data observatory that produces new environmental indicators from open data sources and experimental big data sources, with authoritative copies and a modern API.</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450009" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">Description of the app (maximum 250 words)</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">Climate change and environmental degradation are an existential threat to Europe and the world. To overcome these challenges, the European Union created the European Green Deal strategic plan, which aims to make the EU&rsquo;s economy sustainable by turning climate and environmental challenges into opportunities and making the transition just and inclusive for all.&#xd;&#xa;&#xd;&#xa;Our Green Deal Data Observatory is a modern reimagination of existing &lsquo;data observatories&rsquo;&#x3b; currently, there are over 70 permanent international data collection and dissemination points. One of our objectives is to understand why the dozens of the EU&rsquo;s observatories do not use open data and reproducible research. We want to show that open governmental data, open science, and reproducible research can lead to a higher quality and faster data ecosystem that fosters growth for policy, business, and academic data users.&#xd;&#xa;&#xd;&#xa;We provide high quality, tidy data through a modern API which enables data flows between public and proprietary databases. We believe that introducing Open Policy Analysis standards with open data, open-source software, and research automation, can help the Green Deal policymaking process. Our collaboration is open for individuals, citizens scientists, research institutes, NGOS, and companies.</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450010" style="margin: 5px; margin-top: 25px;">
+					<span class="mandatory" style="position: absolute; margin-left: -7px; margin-top: 3px;">*</span>
+					<div class="questiontitle">EU datasets used (URLs)</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">https&#x3a;&#x2f;&#x2f;greendeal.dataobservatory.eu&#x2f;&#x23;data</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450011" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">Any feedback about your experiences in working with EU open data?</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;">We use many open governmental &#x28;PSI&#x29;, open science and otherwise open data and we will place their sources in our website.</div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450012" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">How did you hear about EU Datathon?</div>
+					<div class="answer-columns">
+						<table class="answers-table">
+									<tr>
+										<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450013" class=" check" type="radio" name="answer59450012" value="59450013" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Twitter</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450014" class=" check" type="radio" name="answer59450012" value="59450014" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Facebook</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450015" class=" check" type="radio" name="answer59450012" value="59450015" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">LinkedIn</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" checked="checked" id="59450016" class="check " type="radio" name="answer59450012" value="59450016" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Website of the Publications Office of the EU</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450017" class=" check" type="radio" name="answer59450012" value="59450017" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Newsletter</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450018" class=" check" type="radio" name="answer59450012" value="59450018" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Other participants of previous EU Datathons</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450019" class=" check" type="radio" name="answer59450012" value="59450019" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">University</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450020" class=" check" type="radio" name="answer59450012" value="59450020" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">Other</div>
+											</td>						
+											</tr>
+												<tr>
+											</tr>			
+								</table>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59450021" style="margin: 5px; margin-top: 25px; display: none;">
+					<div class="questiontitle">Other communication channel</div>
+					<pre style="white-space: pre-wrap; font-family: FreeMono, 'Courier New', Courier, monospace"><div style="word-wrap: break-word; margin-left: 0px;"></div></pre>
+						</div>
+								
+								
+			<div class="survey-element" id="59450022" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle">Age of team member(s)</div>
+					<div class="answer-columns">
+						<table class="answers-table">
+									<tr>
+										<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" checked="checked" id="59450023" class="check " type="radio" name="answer59450022" value="59450023" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">We register as <strong>adults</strong> (every team member is 18 years old or older).</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450024" class=" check" type="radio" name="answer59450022" value="59450024" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">We register as <strong>minors</strong> (every team member is under 18 years old) <strong>and</strong> we have the agreement of the parents/legal guardians to participate for each team member.</div>
+											</td>						
+											</tr>
+												<tr>
+											<td style="vertical-align: top">
+												<input disabled="disabled" readonly="readonly" id="59450025" class=" check" type="radio" name="answer59450022" value="59450025" />
+													</td>
+											<td style="vertical-align: top">
+												<div class="answertext" style="max-width: none">We register as a <strong>mixed team</strong> (team leader is 18 years old or older and some team members are below the age of 18) <strong>and</strong> we have the agreement of the parents/legal guardians to participate for each team member.</div>
+											</td>						
+											</tr>
+												<tr>
+											</tr>			
+								</table>
+							</div>
+				</div>
+								
+								
+			<div class="survey-element" id="59450026" style="margin: 5px; margin-top: 25px;">
+					<div class="questiontitle"><input type='checkbox' checked='checked' class='required check' name='answer59450026' /> I accept the <a data-mce-href="https://op.europa.eu/en/web/eudatathon/privacy-statement" href="https://op.europa.eu/en/web/eudatathon/privacy-statement" target="_blank" rel="noopener">privacy statement</a> of EU Datathon.</div>																			
+					
+					</div>
+								
+								
+			<div style="margin-top: 35px;">
+			
+			<div class="linkstitle" style="margin-bottom: 5px;">Contact</div>
+				
+				<a class="link visibleLink" href="/eusurvey/runner/contactform/EU-Datathon-2021-project-descriptions">Contact Form</a>
+					<hr style="margin-top: 15px;" />
+			</div>						
+	</div>
+	
+</body>
+</html>
