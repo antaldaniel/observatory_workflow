@@ -24,9 +24,9 @@ Every day an R instance runs a script.  _In the first days, this should be done 
 
 6 .The indicators prepared in 1-2 are uploaded in a Sqlite db file _temporarily_ to the _data-raw_ folder of  [indicator](https://github.com/dataobservatory-eu/indicator) the package. See _dmo.db_ for the [Digital Muisc Observatory](https://music.dataobservatory.eu/)
 
-7. The new_data / my_data.db goes to the serverthat runs our datasette instance (Boti). It is parameterized in a way that when a my_data.db arrives, it appends or updates the tables. Here is Boti's test version from today: [http://54.165.46.111:8000/](http://54.165.46.111:8000/) Please describe this in far more detail so that other contributors can work on this.
+7. The new_data / my_data.db goes to the serverthat runs our datasette instance (Boti). It is parameterized in a way that when a my_data.db arrives, it appends or updates the tables. Here is the test version of the API: http://34.226.91.55 . Any .db file that is transferred to the /home/ubuntu directory of the server will be processed automatically (nonduplicate records added to the dataset).
 
-6. One the [Datasette](http://54.165.46.111:8000/) is updated, we should have second trigger. 
+6. One the [Datasette](http://34.226.91.55) is updated, we should have second trigger. 
 
 7. This should start an R script somewhere. It updates an R bookdown longform documentation (see for example [music.dataobservatory.eu](https://music.dataobservatory.eu/)), which created an updated longform documentation to the new datafiles. This can be very straightforward, each table in the Datasette has a place in the longform description (maybe a knitr child markdown template); the table is downloaded from the API, its presentation formats are added to the bookdown html, epub, pdf versions. 
 
