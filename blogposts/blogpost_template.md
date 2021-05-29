@@ -69,8 +69,8 @@ Add you answer in clear test, and seperate links or add them as markdown links i
 
 **For you, what would be the ultimate dataset, or datasets that you would like to see in the Green Deal Data Observatory?**  
 
-Add you answer in clear test, and seperate links or add them as markdown links in the clear text.
 
+Please mention https://github.com/KKulma/climate-change-data, and what do you think we should bring in from these first to the observatory! 
 
 **Why are you excited about being a part of this group and why do you believe that this would be a game changer for researchers and/or policymakers?** [and/or, you can add business, too]
 
