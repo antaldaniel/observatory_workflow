@@ -85,7 +85,7 @@ _Example from Daniel: more people are smoking cigarettes on Earth in 2021 then i
 
 **From your perspective, what do you see being the greatest problem with open data in 2021?**
 
-**What do you think the Green Deal Data Observatory can do to make open data more credible in the European economic policy community and be accepted as verified information?** 
+**What do you think our automated data observatories can do to make open data more credible in the European economic policy community and be accepted as verified information?** 
 
 
 ## Leo Lahti
@@ -107,7 +107,29 @@ _Example from Daniel: more people are smoking cigarettes on Earth in 2021 then i
 
 **From your perspective, what do you see being the greatest problem with open data in 2021?**
 
-**What can the Green Deal Data Observatory do to make open data more credible in the European economic policy community and be accepted as verified information?** 
+**What can our automated data observatories do to make open data more credible in the European economic policy community and be accepted as verified information?** 
+
+
+## Pyry Kantanen
+
+**As a developer at rOpenGov, and as an economic sociologist, what type of data do you usually use in your work?**
+
+**In your ideal data world, what would be the ultimate dataset, or datasets that you would like to see in the Green Deal Data Observatory / Economy Data Observatory / Music Data Observatory (you can list several ones, and of course, more difficult ones that what we get from Eurostat)?  **
+
+**Why did you decide to join the challenge and why do you think that this would be a game changer for researchers and/or policymakers?** [and/or, you can add business, too]
+
+<optional: Do you have a favorite, or most used open governmental or open science data source? What do you think about it?  Could it be improved?>
+
+**Is there a number <piece of information as data> that recently surprised you? What was it? **
+
+
+Example from Daniel: more people are smoking cigarettes on Earth in 2021 then in 1990. Population growth in developing countries replaced the shrinking number of developed country smokers. 
+
+**From your perspective, what do you see being the greatest problem with open data in 2021?**
+
+
+**What can our automated data observatories do to make open data more credible in the European economic policy community and be accepted as verified information? **
+
 
 
 # Service developer interviews / blogposts

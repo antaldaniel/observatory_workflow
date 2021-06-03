@@ -1,0 +1,41 @@
+---
+title: "How We Create Vaue"
+author: "Daniel Antal, CFA"
+date: "6/3/2021"
+output: 
+   html_document
+   md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r cars, echo=FALSE}
+knitr::include_graphics(
+  file.path("..", "plots", "business_development", "value_chain.png")
+)
+```
+
+## Reproducible Research {#reproducible-research}
+
+1. **Our curatotrs**: help finding the best available information source.  This is often open data, which does not equal public data. Open data is a governmental or scientific data source which you can legally access.  It is almost never available for direct download, and requires much processing.  You could probably do this in Excel -- if the data was not in various `sql`, `pdf`, `sav`, `csv`, `tsv`, `xls` and various other file formats. 
+
+2. **We process the data**: Yes, anybody can change million euros to euros in a spreadshit, tons to kilograms, maybe even ounces to grams, but many unit conversation are error-prone if done by humans. Not everybody can make valid currency translation (*When do I use year-end USD/EUR rate? Today's EUR/GBP? Or GBP/EUR? Annual average rate?*) We do it in a way that it confirms the tidy data definition, which allows its easy integration, joining and importing into your database. While the unit conversions can be automated in Excel or PowerBI, the data tidying requires a more programatic approach.
+
+3. **Quality control**:  Our data goes through dozens of computer logical checks (*Do assets and liabilities match? Dollar and euro amounts lead to the same result?*) Our algorithms go through automated and human statistical peer-review, and are open to your experts for checking, because transparency and openness allows for the best quality control. This unit testing is not really possible in Excel or Power BI, not to mention the senior supervision of such tasks. To maintain data integrity, we place an authoritative copy with a digital object identifier in Zenodo scientific data repository. We place both our algorithms and our methods into peer-reviewed scientific publications, and our data products are checked and improved by competent experts in the field.
+
+4. **We produce** the data and its visualization in easy to reuse, machine-readable, platform-independent formats. Just like that, `csv`, `json`, `jpg`, `png`, `doxc`, `epub`, `pdf`, `pptx`, `odt`, `sav`, you name it, we do it.
+
+## Research Automation {#research-automation}
+
+Because every step of our data acquisition, processing, strucutring, testing is going through machines, it can be replicated any given year, month, day, or hour.  The research automation means that we update our data every day (Is there new data at the source? Corrections? Known issues?) and place the current version in an API.  
+
+1. **Continous data collection**:  Big data sources usually provide the user with a large quantity of insignificant data. Because of the large quantity, the data is usually not available historically: you capture it today or it is gone. You need to process them in big quantities to find signficiant, meaningful information in them. Most small enterprises and research teams do not have the engineering capactity to organize this. We do continous data collection on all sources to capture the latest updates, or corrections.
+
+2. **Focus on reusability**:  In our experience, the resuability of research and consulting work is greatly reduced by two factors, which we resolve with continous data collection and documentation: 
+   - poor documentation (the bibliography updates and file descriptions are the least priortized tasks)
+   - data tables, charts, visualizations became dated then obsolete.
+   
+3. From tidy and open data to **data-as-service**: Because all our assets, including key business indicators, policy indicators, scientific replication sets, and their visualizations, maps, are created by open source and reproducible software, the software can run continously. Instead of providing our users with data tables, charts and maps, we provide them with a subsription to the latest data and its latest visualizations.
